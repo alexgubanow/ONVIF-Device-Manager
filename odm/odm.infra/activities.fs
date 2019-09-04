@@ -40,9 +40,7 @@
                 }
                 let disp = Application.Current.Dispatcher
                 Async.StartWithContinuations(
-                    disp.InvokeAsync(
-                        (fun() -> callback.Invoke(context))
-                    ),
+                    disp.InvokeAsync((fun() -> callback.Invoke(context))).Task |> Async.AwaitTask,
                     (fun()->()), 
                     error, 
                     cancel,

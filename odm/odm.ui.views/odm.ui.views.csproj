@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>odm.ui</RootNamespace>
     <AssemblyName>odm.ui.views</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Utf8Output>true</Utf8Output>
     <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
@@ -39,8 +39,8 @@
     <Reference Include="Accessibility">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="FSharp.Core">
-      <Private>True</Private>
+    <Reference Include="FSharp.Core, Version=4.7.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FSharp.Core.4.7.0\lib\net45\FSharp.Core.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -1034,6 +1034,10 @@
       <Project>{04196C86-66F6-4A9C-BE0B-90AA5353B1C6}</Project>
       <Name>utils.fsharp</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.wpf\utils.wpf.csproj">
+      <Project>{0f9687ce-3798-4469-8a4f-f3bc15997702}</Project>
+      <Name>utils.wpf</Name>
+    </ProjectReference>
     <ProjectReference Include="..\odm.infra\odm.infra.fsproj">
       <Project>{A13DCAE1-F908-431B-94BA-9CCE4C11D496}</Project>
       <Name>odm.infra</Name>
@@ -1057,10 +1061,6 @@
     <ProjectReference Include="..\..\utils\utils.linq\utils.linq.csproj">
       <Project>{65FB2C9F-3A0F-4E3F-ADBD-912BC6F08508}</Project>
       <Name>utils.linq</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\utils\utils.wpf\utils.wpf.csproj">
-      <Project>{0F9687CE-3798-4469-8A4F-F3BC15997702}</Project>
-      <Name>utils.wpf</Name>
     </ProjectReference>
     <ProjectReference Include="..\odm.onvif.extensions\odm.onvif.extensions.fsproj">
       <Project>{B900157A-8F66-4C82-BEF3-9BFA7E85DF9D}</Project>

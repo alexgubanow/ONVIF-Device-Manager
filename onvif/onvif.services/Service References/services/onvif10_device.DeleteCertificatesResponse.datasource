@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="DeleteCertificatesResponse" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>onvif10_device.DeleteCertificatesResponse, onvif.services, Version=2.2.190.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>onvif10_device.DeleteCertificatesResponse</TypeInfo>
 </GenericObjectDataSource>
