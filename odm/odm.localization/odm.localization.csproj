@@ -114,10 +114,6 @@
       <Project>{65FB2C9F-3A0F-4E3F-ADBD-912BC6F08508}</Project>
       <Name>utils.linq</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\utils\utils.xml\utils.xml.csproj">
-      <Project>{C00B45E2-5ABA-4F7A-BD85-505594794AAE}</Project>
-      <Name>utils.xml</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- 

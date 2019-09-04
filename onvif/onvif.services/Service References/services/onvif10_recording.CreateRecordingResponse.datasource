@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="CreateRecordingResponse" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>onvif10_recording.CreateRecordingResponse</TypeInfo>
+   <TypeInfo>onvif10_recording.CreateRecordingResponse, onvif.services, Version=2.2.190.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

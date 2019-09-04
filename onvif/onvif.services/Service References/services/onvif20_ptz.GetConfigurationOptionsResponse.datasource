@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="GetConfigurationOptionsResponse" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>onvif20_ptz.GetConfigurationOptionsResponse</TypeInfo>
+   <TypeInfo>onvif20_ptz.GetConfigurationOptionsResponse, onvif.services, Version=2.2.190.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>
