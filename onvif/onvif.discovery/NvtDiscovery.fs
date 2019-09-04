@@ -426,7 +426,7 @@
                     fc.MaxResults <- Int32.MaxValue
                     disc.Find(fc).Timeout(duration, Observable.Empty<WsDiscoveredEndpoint>()).Subscribe(
                         (fun ep->process_online(ep.metadata, ep.messageSequence)),
-                        (fun err->dbg.Error(err)),
+                        //(fun err->dbg.Error(err)),
                         (fun ()->())
                     )
                 let disp = [|
