@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 
-namespace utils {
-    public static class DependencyObjectEx {
+namespace utils
+{
+    public static class DependencyObjectEx
+    {
 
 
         #region Name
 
 
-        public static string GetName(DependencyObject obj) {
+        public static string GetName(DependencyObject obj)
+        {
             return (string)obj.GetValue(NameProperty);
         }
 
-        public static void SetName(DependencyObject obj, string value) {
+        public static void SetName(DependencyObject obj, string value)
+        {
             obj.SetValue(NameProperty, value);
         }
 
