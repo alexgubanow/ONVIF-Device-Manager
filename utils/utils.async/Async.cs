@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace utils {
-	public static class Async {
+namespace utils
+{
+    public static class Async {
 		public static async Task<T> TryCatch<T>(Func<Task<T>> @try, Func<Exception, Task<T>> @catch) {
 			Task<T> econt;
 			try {

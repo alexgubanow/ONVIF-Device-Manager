@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ExceptionServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace utils {
-	public class Awaiter<TResult> : IAwaiter<TResult>, IAwaitable<TResult> {
+namespace utils
+{
+    public class Awaiter<TResult> : IAwaiter<TResult>, IAwaitable<TResult> {
 		#region State
 		abstract class State {
 			private State() { }
