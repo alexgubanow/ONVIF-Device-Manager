@@ -1,54 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{902a3ff3-e9bd-443d-8fc1-69aa42b5f76b}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>odm.core</RootNamespace>
-    <AssemblyName>onvif.session</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <Name>odm-infra</Name>
-    <TargetFSharpCoreVersion>4.0.0.0</TargetFSharpCoreVersion>
-    <TargetFrameworkProfile />
+    <TargetFramework>net472</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <Tailcalls>false</Tailcalls>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Debug\odm.infra.xml</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <Tailcalls>true</Tailcalls>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Release\odm_infra.XML</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
-  </PropertyGroup>
-  <Choose>
-    <When Condition="'$(VisualStudioVersion)' == '11.0'">
-      <PropertyGroup>
-        <FSharpTargetsPath>$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets</FSharpTargetsPath>
-      </PropertyGroup>
-    </When>
-    <Otherwise>
-      <PropertyGroup>
-        <FSharpTargetsPath>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets</FSharpTargetsPath>
-      </PropertyGroup>
-    </Otherwise>
-  </Choose>
-  <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
+
   <ItemGroup>
     <Compile Include="..\~cfg\AssemblyInfo.global.fs">
       <Link>Properties\AssemblyInfo.global.fs</Link>
@@ -70,84 +25,31 @@
     <Compile Include="Services\SearchAsync.fs" />
     <Compile Include="Services\ActionEngineAsync.fs" />
     <Compile Include="NvtSession.fs" />
-    <None Include="packages.config" />
   </ItemGroup>
+
   <ItemGroup>
-    <Reference Include="FSharp.Core">
-      <HintPath>..\..\packages\FSharp.Core.4.7.0\lib\net45\FSharp.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="mscorlib" />
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Core" />
+    <PackageReference Include="System.Reactive.Core" Version="4.1.6" />
+    <PackageReference Include="System.Reactive.Interfaces" Version="4.1.6" />
+    <PackageReference Include="System.Reactive.Linq" Version="4.1.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\utils\utils.async\utils.async.csproj" />
+    <ProjectReference Include="..\..\utils\utils.common\utils.common.csproj" />
+    <ProjectReference Include="..\..\utils\utils.diagnostics\utils.diagnostics.csproj" />
+    <ProjectReference Include="..\..\utils\utils.fsharp\utils.fsharp.fsproj" />
+    <ProjectReference Include="..\..\utils\utils.xml\utils.xml.csproj" />
+    <ProjectReference Include="..\onvif.services\onvif.services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="System.IdentityModel" />
-    <Reference Include="System.IdentityModel.Selectors" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Reactive">
-      <HintPath>..\..\..\..\..\source\repos\ONVIF-Device-Manager\packages\System.Reactive.4.2.0-preview.625\lib\net46\System.Reactive.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Core">
-      <HintPath>..\..\..\..\..\source\repos\ONVIF-Device-Manager\packages\System.Reactive.Core.4.2.0-preview.625\lib\net46\System.Reactive.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Interfaces">
-      <HintPath>..\..\..\..\..\source\repos\ONVIF-Device-Manager\packages\System.Reactive.Interfaces.4.2.0-preview.625\lib\net46\System.Reactive.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Linq">
-      <HintPath>..\..\..\..\..\source\repos\ONVIF-Device-Manager\packages\System.Reactive.Linq.4.2.0-preview.625\lib\net46\System.Reactive.Linq.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>..\..\..\..\..\source\repos\ONVIF-Device-Manager\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Discovery" />
-    <Reference Include="System.Threading.Tasks.Extensions">
-      <HintPath>..\..\..\..\..\source\repos\ONVIF-Device-Manager\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Windows" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="WindowsBase" />
-    <ProjectReference Include="..\..\utils\utils.async\utils.async.csproj">
-      <Name>utils.async</Name>
-      <Project>{ca45551a-6a4e-4e3d-af2e-e081f209bb14}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\utils\utils.common\utils.common.csproj">
-      <Name>utils.common</Name>
-      <Project>{2faa440a-87d3-41ab-9931-25ac306a25ba}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\utils\utils.diagnostics\utils.diagnostics.csproj">
-      <Name>utils.diagnostics</Name>
-      <Project>{c89d83ca-c0fa-4573-a63e-f716dd628696}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\utils\utils.fsharp\utils.fsharp.fsproj">
-      <Name>utils.fsharp</Name>
-      <Project>{04196c86-66f6-4a9c-be0b-90aa5353b1c6}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\utils\utils.xml\utils.xml.csproj">
-      <Name>utils.xml</Name>
-      <Project>{c00b45e2-5aba-4f7a-bd85-505594794aae}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\onvif.services\onvif.services.csproj">
-      <Name>onvif.services</Name>
-      <Project>{3cb4f764-648f-4aa3-9e85-91992337d3ea}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <Reference Include="WindowsBase" />
   </ItemGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-	     Other similar extension points exist, see Microsoft.Common.targets.
-	<Target Name="BeforeBuild">
-	</Target>
-	<Target Name="AfterBuild">
-	</Target>
-	-->
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="4.7.0" />
+  </ItemGroup>
+
 </Project>
