@@ -1038,6 +1038,10 @@
       <Project>{0f9687ce-3798-4469-8a4f-f3bc15997702}</Project>
       <Name>utils.wpf</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.xml\utils.xml.csproj">
+      <Project>{c00b45e2-5aba-4f7a-bd85-505594794aae}</Project>
+      <Name>utils.xml</Name>
+    </ProjectReference>
     <ProjectReference Include="..\odm.infra\odm.infra.fsproj">
       <Project>{A13DCAE1-F908-431B-94BA-9CCE4C11D496}</Project>
       <Name>odm.infra</Name>

@@ -17,7 +17,7 @@
 
     open onvif.services
     open onvif.utils
-    open utils
+    //open utils
     open utils.fsharp
     open ProfileDescription
     
@@ -75,7 +75,7 @@
                     let! model = this.Load(args)
                     return this.Show(model)
                 with err ->
-                    dbg.Error(err)
+                    utils.dbg.Error(err)
                     do! this.ShowError(err)
                     return this.Main(args)
             }
@@ -165,7 +165,7 @@
                     |Select m -> return! this.OnSelect(m)
                     |Finish m -> return! this.OnFinish(m)
                 with err->
-                    dbg.Error(err)
+                    utils.dbg.Error(err)
                     do! this.ShowError(err)
                     return this.Show(model)
             }
@@ -434,7 +434,7 @@
                     //model.AcceptChanges()
                     return this.ShowForm(state)
                 with err -> 
-                    dbg.Error(err)
+                    utils.dbg.Error(err)
                     do! ErrorView.Show(ctx, err) |> Async.Ignore
                     return this.Main(selection)
             }
@@ -468,7 +468,7 @@
                     return! show()
 
                 with err ->
-                   dbg.Error(err)
+                   utils.dbg.Error(err)
                    do! ErrorView.Show(ctx, err) |> Async.Ignore
                    return this.ShowForm(state)
             }
@@ -518,7 +518,7 @@
                     close = (fun () -> None)
                 )
             with err ->
-                dbg.Error(err)
+                utils.dbg.Error(err)
                 do! ErrorView.Show(ctx, err) |> Async.Ignore
                 return None
         }
@@ -562,7 +562,7 @@
                             abort = (fun () -> this.ShowForm(state))
                         )
                     with err -> 
-                        dbg.Error(err)
+                        utils.dbg.Error(err)
                         do! ErrorView.Show(ctx, err) |> Async.Ignore
                         return this.Main(selection)
                     }
@@ -584,7 +584,7 @@
                     do! adev.CreateAnalyticsEngineControl(ctrl) |> Async.Ignore
                     return this.Main(selection)
                 with err -> 
-                    dbg.Error(err)
+                    utils.dbg.Error(err)
                     do! ErrorView.Show(ctx, err) |> Async.Ignore
                     return this.Main(selection)
                 }
@@ -620,11 +620,11 @@
                             use! progress = Progress.Show(ctx, "aborting control creation...")
                             do! adev.DeleteAnalyticsEngineControl(ctrl.token)
                         with err -> 
-                            dbg.Error(err)
+                            utils.dbg.Error(err)
                             do! ErrorView.Show(ctx, err) |> Async.Ignore
                         return this.Main(selection)
                 with err -> 
-                    dbg.Error(err)
+                    utils.dbg.Error(err)
                     do! ErrorView.Show(ctx, err) |> Async.Ignore
                     return this.Main(selection)
                 }
@@ -666,7 +666,7 @@
                             |None ->
                                 return this.ConfigureInputs(inputs, receivers)
                         with err -> 
-                            dbg.Error(err)
+                            utils.dbg.Error(err)
                             do! ErrorView.Show(ctx, err) |> Async.Ignore
                             return this.ConfigureInputs(inputs, receivers)
                     }
@@ -709,7 +709,7 @@
                         abort = (fun m -> this.Main(selection))
                     )
                 with err -> 
-                    dbg.Error(err)
+                    utils.dbg.Error(err)
                     do! ErrorView.Show(ctx, err) |> Async.Ignore
                     return this.Main(selection)
                 }
@@ -728,7 +728,7 @@
                     else
                         return this.Main(selectionToken)
                 with err -> 
-                    dbg.Error(err)
+                    utils.dbg.Error(err)
                     do! ErrorView.Show(ctx, err) |> Async.Ignore
                     return this.Main(selectionToken)
             }
@@ -787,7 +787,7 @@
                     else
                         return this.Main(selection)
                 with err -> 
-                    dbg.Error(err)
+                    utils.dbg.Error(err)
                     do! ErrorView.Show(ctx, err) |> Async.Ignore
                     return this.Main(selection)
                 }

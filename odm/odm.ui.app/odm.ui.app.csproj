@@ -154,6 +154,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\utils\utils.xml\utils.xml.csproj">
+      <Project>{c00b45e2-5aba-4f7a-bd85-505594794aae}</Project>
+      <Name>utils.xml</Name>
+    </ProjectReference>
     <ProjectReference Include="..\odm.player\odm.player.net\odm.player.net.vcxproj">
       <Project>{D3EEB24E-79A7-48B3-8D58-EDBABB68CF0A}</Project>
       <Name>odm.player.net</Name>
